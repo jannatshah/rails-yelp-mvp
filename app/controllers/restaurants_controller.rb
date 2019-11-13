@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.reviews
+    @review = Review.new
   end
 
   def new
@@ -17,7 +18,6 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to @restaurant
     else
-      # redirect_to new_restaurant_path
       render :new
     end
   end
